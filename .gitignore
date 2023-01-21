@@ -361,3 +361,21 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
+#Folders
+Assets/Adaptive Performance
+Assets/Animation
+Assets/Audio
+Assets/Imported Assets
+Assets/Inputs
+Assets/NinjaAdventure(stripped)
+Assets/Prefabs
+Assets/Scenes
+Assets/Sprites_Images
+Assets/Tile Palettes
+
+Builds
+Library
+temp
+UserSettings
