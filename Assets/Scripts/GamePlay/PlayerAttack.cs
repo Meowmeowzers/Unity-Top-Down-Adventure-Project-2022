@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -6,6 +8,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private SpriteRenderer attackEffect;
     [SerializeField] private Animator attackEffectAnimation;
     [SerializeField] private AudioClip[] soundAttack;
+
+    [SerializeField] private GameObject shuriken;
+    [SerializeField] private GameObject projectile;
 
     private Animator animPlayer;
     private Attack attack;
@@ -16,7 +21,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 attackOffset;
     private Vector2 attackSize;
 
-    //public float attackDamage = 3;
+    private WaitForSeconds cooldownAttack2 = new(3f);
+    private bool isAttack2Ready = true;
 
     private void Start()
     {
@@ -27,6 +33,9 @@ public class PlayerAttack : MonoBehaviour
         animPlayer = GetComponentInParent<Animator>();
         attackSize.x = attackOffset.x / 2;
         attackSize.y = attackOffset.y / 2;
+
+        projectile = Instantiate(shuriken, gameObject.transform.position, Quaternion.identity);
+        projectile.SetActive(false);
     }
 
     public void StartAttack()
@@ -74,6 +83,48 @@ public class PlayerAttack : MonoBehaviour
                 attackOffset.x += .7f;
                 break;
         }
+    }
+
+    public void OnAttack2()
+    {
+        if (isAttack2Ready)
+        {
+            Debug.Log("ranged attack");
+            isAttack2Ready = false;
+            StartCoroutine(CAttack2Ready());
+            attackEffectAnimation.SetBool("isTriggered", true);
+            animPlayer.SetTrigger("meleeAttack");
+            projectile.SetActive(true);
+            projectile.transform.position = this.gameObject.transform.position;
+
+            switch (movement.ldirection)
+            {
+                case Movement.LastDirection.top:
+                    projectile.GetComponent<Shuriken>().Fire(0);
+                    break;
+
+                case Movement.LastDirection.down:
+                    projectile.GetComponent<Shuriken>().Fire(1);
+                    break;
+
+                case Movement.LastDirection.left:
+                    projectile.GetComponent<Shuriken>().Fire(2);
+                    break;
+
+                case Movement.LastDirection.right:
+                    projectile.GetComponent<Shuriken>().Fire(3);
+                    break;
+            }
+        }
+    }
+
+    private IEnumerator CAttack2Ready()
+    {
+        yield return cooldownAttack2;
+
+        isAttack2Ready = true;
+ 
+        yield break;
     }
 }
 

@@ -12,8 +12,7 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<BaseObjectStats>() &&
-            !collision.gameObject.GetComponent<PlayerStats>())
+        if (collision.gameObject.GetComponent<BaseObjectStats>() && !collision.gameObject.GetComponent<PlayerStats>())
         {
             collision.gameObject.GetComponent<BaseObjectStats>().TakeDamage(player.AttackDamage);
         }

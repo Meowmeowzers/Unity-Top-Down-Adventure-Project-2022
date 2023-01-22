@@ -20,7 +20,7 @@ public class GamePause : MonoBehaviour
         Time.timeScale = 1f;
         gameManager.PauseMenu.SetActive(false);
         gameManager.SystemCamera.SetActive(false);
-        gameManager.GameControlsMenu.SetActive(true);
+        gameManager.GameControlsMenu.SetActive(false);
         gameManager.gameObject.SetActive(false);
         SceneManager.LoadScene("StartScene");
     }
