@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8190f073a280e4bafeb7a78ac6eba9, type: 3}
+  m_Name: Quiz Item 14
+  m_EditorClassIdentifier: 
+  question: 'This subject focuses on the fundamental concepts, building blocks, and
+    differences of languages, and the effects they have on coding and implementation. '
+  rightChoice: Programming Languages
+  otherChoices:
+  - Fundamentals of Programming
+  - Automata Theory
+  - Operating Systems
+  - Object Oriented Programming
+  selectedChoices:
+  - Fundamentals of Programming
+  - Automata Theory
+  - Programming Languages
+  - Object Oriented Programming
+  randomCorrectAnswerIndex: 2

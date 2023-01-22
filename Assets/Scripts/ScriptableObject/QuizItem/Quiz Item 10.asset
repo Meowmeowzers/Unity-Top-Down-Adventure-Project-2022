@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8190f073a280e4bafeb7a78ac6eba9, type: 3}
+  m_Name: Quiz Item 10
+  m_EditorClassIdentifier: 
+  question: 'This subject deals with the design of computers, data storage devices,
+    and networking components that store and run programs, transmit data, and drive
+    interactions between computers, across networks, and with users.
+
+'
+  rightChoice: Architecture and Organization
+  otherChoices:
+  - Microcontroller Technology
+  - Computer Engineering
+  - Basic Electronic Circuits
+  - System Fundamentals
+  selectedChoices:
+  - 
+  - 
+  - 
+  - 
+  randomCorrectAnswerIndex: 0

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ffd7eded2bf084aaf5018f9edfa9df, type: 3}
+  m_Name: ScrollData_8
+  m_EditorClassIdentifier: 
+  title: Algorithms and Complexities
+  content: 'This focuses on analyzing iterative and recursive algorithms for use
+    of resources (time, memory, parallelism, bandwidth, randomness, etc.). Develop
+    fluency with big-O notation, and learn to choose and implement efficient algorithms
+    for numeric, combinatorial, and geometric problems. Learn basic concepts and
+    terminology in computability and computational complexity.
+
+
+    - Sorting
+
+    -
+    Searching
+
+    - Graphs
+
+    - Recursion
+
+    - Strings
+
+    - Dynamic Programming
+
+    -
+    Random Numbers'
+  isUnlocked: 0

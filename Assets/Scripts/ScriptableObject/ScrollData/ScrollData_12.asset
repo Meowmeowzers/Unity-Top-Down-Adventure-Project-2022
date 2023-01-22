@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ffd7eded2bf084aaf5018f9edfa9df, type: 3}
+  m_Name: ScrollData_12
+  m_EditorClassIdentifier: 
+  title: Information Assurance and Security
+  content: 'This subject focuses on the practice of assuring information and managing
+    risks related to the use, processing, storage, and transmission of information.
+    Information assurance includes protection of the integrity, availability, authenticity,
+    non-repudiation and confidentiality of user data
+
+
+    Topics include the nature
+    and challenges of computer security, the relationship between policy and security,
+    the role and application of cryptography, the mechanisms used to implement policies,
+    the methodologies and technologies for assurance and vulnerability analysis and
+    intrusion detection. '
+  isUnlocked: 0

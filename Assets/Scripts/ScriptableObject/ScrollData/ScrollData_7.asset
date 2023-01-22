@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ffd7eded2bf084aaf5018f9edfa9df, type: 3}
+  m_Name: ScrollData_7
+  m_EditorClassIdentifier: 
+  title: Computer Graphics
+  content: 'This subject deals with generating images with the aid of computers.
+
+
+    The
+    subject covers fundamental topics such as graphics representations and transformations,
+    the viewing pipeline, visibility, lighting, and textures, as well as more advanced
+    areas such as ray tracing and global illumination.'
+  isUnlocked: 0

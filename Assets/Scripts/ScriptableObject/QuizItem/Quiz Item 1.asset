@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8190f073a280e4bafeb7a78ac6eba9, type: 3}
+  m_Name: Quiz Item 1
+  m_EditorClassIdentifier: 
+  question: 'This subject provides students with the basics of computers and their
+    application in business. It exposes students to the operating system, input devices,
+    output devices and storage units and their interrelationships. '
+  rightChoice: Introduction to Computing
+  otherChoices:
+  - Programming Fundamentals
+  - Parallel and Distributed Computing
+  - Basic Electronic Circuits
+  - Computer Graphics
+  - Graphics Design
+  selectedChoices:
+  - adf
+  - Right Answer
+  - 123
+  - uio
+  randomCorrectAnswerIndex: 1

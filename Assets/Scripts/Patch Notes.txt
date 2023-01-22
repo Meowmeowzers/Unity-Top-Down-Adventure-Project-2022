@@ -1,0 +1,129 @@
+Top Down Adventure Game Patch Notes
+// I will try to take note all of the changes that I made to the game.
+// Each time I build the game, I'll increment the version.
+// The game will reach version 1.0.0 when all required features and content is ready.
+
+
+
+Version 0.9.3
+
+- Lots of bugfixing
+
+Version 0.9.2
+Version 0.9.1
+Version 0.9.0
+
+- A complete rewrite on the game's system (architecture?)
+- Goal is to make sure that the main game system always retains data on each scene
+- Todo: find a better way to store data
+
+- Experimenting with loading scene while retaining data (I need internet wew...)
+
+- Simple main lobby added
+- Start portal UI
+- Start portal where dev can choose an area to start
+
+- Enemy spawner cell
+- New AI script
+- Sticked with ninja village asset pack
+	- Level design
+	- Characters
+- Simple settings menu
+- Experiment on particle system
+- Added sound mixer
+- Separated music and sound mixer
+- Settings for quality(fps) and volume
+
+- Learned about application of static fields
+- Learned about data retention between scenes
+- Learned about data binary serialization
+- Learned about scriptable object
+- Learned about coroutines
+
+Version 0.8.0
+
+Additions
+- Audio manager
+- Text Panel
+- Message Panel
+- Added random music from opengameart.com
+- Book and its script
+- Book page item
+
+Modifications
+- Minor changes to UI
+
+Fixes
+- Trap damage tick fix
+
+Version 0.7.2
+
+Additions
+- Finished pause script
+- Finished pause menu
+
+Modifications
+- removed direction, x, y debug logs in game interface
+- changed layout of ingame interface
+- new changes to game world
+
+Version 0.7.1
+
+- Fixes and Modifications
+- I dont really remember
+
+Version 0.7.0
+
+Additions
+- Enemy attack
+- Game manager
+- Trap
+- Check point
+- Player flashes when damaged
+- Menu button sounds
+- Random NPC sprite
+
+Modifications
+- Changed tileset
+- Changed main menu image
+- Changed fonts in main menu
+
+Version 0.6.1
+
+Additions
+- Simple save system
+
+Fixed
+- Attack hitbox still moving during player attack animation
+- Enemy slime moving during destroy animation
+- Dirty fix for attack effect
+
+Version 0.6.0
+
+Additions
+- Simple score system / text UI
+- Chest - adds score upon collision
+- Initial Sounds - slime destroyed
+- Animations - slime destroyed
+- Slime spawner area
+- Simple slime AI with aggro range
+
+Modifications
+- Slimes can now chase player when on aggro range
+
+Scripts Related
+- Added Chest, Score, BaseObjectStats abstract, SpawnObject, SpawnPerTime
+- Modified Attack, EnemySlime
+
+
+0.5.2
+0.5.1
+0.5.0
+0.4.1
+0.4.0
+0.3.2
+0.3.1
+0.3.0
+0.2.0
+0.1.1
+0.1.0

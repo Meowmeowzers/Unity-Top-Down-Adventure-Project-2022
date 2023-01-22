@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fa7599fabae0a49859696c5a52a4f6, type: 3}
+  m_Name: DefaultMusicClips
+  m_EditorClassIdentifier: 
+  menu: {fileID: 8300000, guid: be0278cde6ffcb047a27f4df8db858e1, type: 3}
+  normal1: {fileID: 8300000, guid: 6247fe4aa08450040979e858f011c01f, type: 3}
+  normal2: {fileID: 0}
+  battle1: {fileID: 8300000, guid: 27fd7b937c11aab43a90444f12cf687b, type: 3}
+  battle2: {fileID: 0}
+  safe: {fileID: 8300000, guid: 4c9c4a52d351b5946b8c4c9410145b9d, type: 3}

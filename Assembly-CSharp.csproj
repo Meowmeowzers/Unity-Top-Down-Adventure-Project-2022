@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\GamePlay\SpawnPerTime.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\MusicClip.cs" />
     <Compile Include="Assets\Scripts\UI\Main Menu\Settings.cs" />
+    <Compile Include="Assets\Scripts\GamePlay\Shuriken.cs" />
     <Compile Include="Assets\Scripts\SystemAndData\InitializeSettings.cs" />
     <Compile Include="Assets\Scripts\GamePlay\ItemPage.cs" />
     <Compile Include="Assets\Scripts\GamePlay\SpawnCell\SpawnCell_Spawner.cs" />
