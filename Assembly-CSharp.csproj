@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\GamePlay\BaseObjectStats.cs" />
     <Compile Include="Assets\Scripts\UI\MessagePanel.cs" />
     <Compile Include="Assets\Scripts\SystemAndData\CurrentGameState.cs" />
+    <Compile Include="Assets\Scripts\GamePlay\BossEnd.cs" />
     <Compile Include="Assets\Scripts\GamePlay\QuizMain.cs" />
     <Compile Include="Assets\Scripts\SystemAndData\DontDestroyOnLoad.cs" />
     <Compile Include="Assets\Scripts\UI\ShowDirection.cs" />
@@ -119,8 +120,8 @@
     <Compile Include="Assets\Scripts\UI\ShowLastMoveY.cs" />
     <Compile Include="Assets\Imported Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Imported Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\Scripts\UI\GamePause.cs" />
     <Compile Include="Assets\Scripts\Unused\Book.cs" />
+    <Compile Include="Assets\Scripts\UI\GamePause.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\PlayerData.cs" />
     <Compile Include="Assets\Scripts\SystemAndData\GameManager.cs" />
     <Compile Include="Assets\Scripts\SystemAndData\LevelData.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Assets\Scripts\SaveSystem\ShowShortSavedData.cs" />
     <Compile Include="Assets\Scripts\Leo.cs" />
     <Compile Include="Assets\Imported Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scripts\GamePlay\EnemyBoss1.cs" />
     <Compile Include="Assets\Scripts\UI\TextPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Score.cs" />
     <Compile Include="Assets\Scripts\GamePlay\SpawnCell\SpawnCell_Main.cs" />
