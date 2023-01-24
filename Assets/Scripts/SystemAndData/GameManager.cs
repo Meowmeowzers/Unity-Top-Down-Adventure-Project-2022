@@ -76,7 +76,14 @@ public class GameManager : MonoBehaviour
 
     private void RespawnLogic()
     {
-        player.GetComponent<PlayerStats>().Respawn(checkpointTransform);
+        //player.GetComponent<PlayerStats>().Respawn(checkpointTransform);
+
+        // This code is from StartGame.cs, this is to instantly load the save state. Im too lazy so i just copied it.
+        Instance.gameObject.SetActive(true);
+        Instance.newGame = false;
+        gameState.GetComponent<CurrentGameState>().LoadGameSession(SaveAndLoadSystem.saveSlot);
+        SceneManager.LoadScene(gameState.GetComponent<CurrentGameState>().currentScene);
+        Debug.Log("Loaded Scene, initialize loaded game");
     }
 
     public static void PauseGame()

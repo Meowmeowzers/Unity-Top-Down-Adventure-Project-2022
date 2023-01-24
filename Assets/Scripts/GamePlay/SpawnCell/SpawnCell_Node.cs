@@ -31,7 +31,7 @@ public class SpawnCell_Node : MonoBehaviour
         {
             entity.transform.position = this.transform.position;
             entityStats.ObjectHP = entityStats.ObjectMaxHP;
-            entity.GetComponent<EnemyBasic>().SetState(0);
+            entity.GetComponent<EnemyAI>().SetState(0);
             entity.SetActive(true);
             isActive = true;
             isAlive = true;            

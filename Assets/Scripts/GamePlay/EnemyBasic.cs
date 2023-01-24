@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Basic Enemy AI script
 
-public class EnemyBasic : MonoBehaviour
+public class EnemyBasic : EnemyAI
 {
     private BaseObjectStats stats;
     private Rigidbody2D rb;
@@ -12,7 +12,7 @@ public class EnemyBasic : MonoBehaviour
     // AI States
     private enum State { idle, idleMove, chasing, attacking };
     [SerializeField] private State state = State.idle;
-    public void SetState(int value) { state = (State) value; }
+    public override void SetState(int value) { state = (State) value; }
 
     // booleans used for states and methods
     private bool canMove = true;

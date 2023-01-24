@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private AudioClip[] soundAttack;
 
     [SerializeField] private GameObject shuriken;
-    [SerializeField] private GameObject projectile;
+    private GameObject projectile;
 
     private Animator animPlayer;
     private Attack attack;
@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 attackOffset;
     private Vector2 attackSize;
 
-    private WaitForSeconds cooldownAttack2 = new(3f);
+    private WaitForSeconds cooldownAttack2 = new(2f);
     private bool isAttack2Ready = true;
 
     private void Start()

@@ -4,6 +4,9 @@ Top Down Adventure Game Patch Notes
 // The game will reach version 1.0.0 when all required features and content is ready.
 
 
+Version 0.10.1
+Version 0.10.0
+
 
 Version 0.9.3
 

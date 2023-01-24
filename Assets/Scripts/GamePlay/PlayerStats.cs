@@ -20,7 +20,7 @@ public class PlayerStats : BaseObjectStats
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = GameManager.Instance;
         anim = GetComponent<Animator>();
         movement = GetComponent<Movement>();
         sr = GetComponent<SpriteRenderer>();
@@ -29,14 +29,6 @@ public class PlayerStats : BaseObjectStats
         if (objectHP > objectMaxHP)
         {
             objectHP = objectMaxHP;
-        }
-    }
-
-    private void Update()
-    {
-        if (gameManager == null)
-        {
-            gameManager = FindObjectOfType<GameManager>();
         }
     }
 
@@ -52,7 +44,7 @@ public class PlayerStats : BaseObjectStats
             {
                 objectHP = value;
                 //DamagedFlashStart();
-                Debug.Log("Leo - player hp modified " + value);
+                //Debug.Log("Leo - player hp modified " + value);
 
                 if (objectHP <= 0 && !isDead)
                 {
@@ -65,7 +57,7 @@ public class PlayerStats : BaseObjectStats
                 objectHP = 0;
             }
 
-            Debug.Log("Life left: " + objectHP);
+            //Debug.Log("Life left: " + objectHP);
         }
         get
         {
@@ -98,15 +90,22 @@ public class PlayerStats : BaseObjectStats
         transform.position = checkpointTransform;
     }
 
-    public override void TakeDamage(float damage)
-    { Attacked(damage); }
-
     public void ModifyHP(float value)
     {
-        Debug.Log("Leo - original hp " + ObjectHP);
+        //Debug.Log("Leo - original hp " + ObjectHP);
         ObjectHP += value;
-        Debug.Log("Leo - modified hp " + ObjectHP);
+
+        // Im too lazy to fix the late update of hp when modifying hp greater than max hp.
+        // So i just copy pasted this code, without taking note of the structure or sequence
+        if (objectHP > objectMaxHP)
+        {
+            objectHP = objectMaxHP;
+        }
+        //Debug.Log("Leo - modified hp " + ObjectHP);
     }
+
+    public override void TakeDamage(float damage)
+    { Attacked(damage); }
 
     protected override void Attacked(float damage)
     {

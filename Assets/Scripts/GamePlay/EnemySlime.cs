@@ -12,6 +12,7 @@ public class EnemySlime : BaseObjectStats
     [SerializeField] private AudioClip soundDestroy;
 
     private EnemyBasic ai;
+    private EnemyDrop enemyDrop;
 
     public bool isDead = false;
 
@@ -21,8 +22,10 @@ public class EnemySlime : BaseObjectStats
         anim = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         ai = GetComponent<EnemyBasic>();
-        sr = GetComponentInChildren<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
         originalColor = sr.color;
+
+        enemyDrop = GetComponent<EnemyDrop>();
     }
 
     public override float ObjectHP
@@ -40,6 +43,7 @@ public class EnemySlime : BaseObjectStats
                 PlaySound(soundDestroy);
                 isDead = true;
                 anim.SetBool("isDead", true);
+                enemyDrop.StartDrop();
             }
             //Debug.Log(gameObject + "'s life left: " + objectHP);
         }

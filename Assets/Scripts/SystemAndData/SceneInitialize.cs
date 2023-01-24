@@ -1,8 +1,8 @@
-using System.Data.Common;
 using UnityEngine;
 
 public class SceneInitialize : MonoBehaviour
 {
+
     [SerializeField] private GameObject player;
     [SerializeField] private CurrentGameState gameState;
     [SerializeField] private bool isDone = false;
@@ -26,7 +26,7 @@ public class SceneInitialize : MonoBehaviour
         else if (GameManager.Instance.newGame)
         {
             player = GameManager.Instance.FindPlayerObject();
-            player.transform.position = new Vector2(-34.23f, -0.67f);
+            player.transform.position = new Vector2(-31.5f, -29);
             GameTime.TimeValue = 0f;
 
             GameManager.Instance.newGame = false;
