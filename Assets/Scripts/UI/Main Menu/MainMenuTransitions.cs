@@ -9,6 +9,7 @@ public class MainMenuTransitions : MonoBehaviour
     [SerializeField] private GameObject newGameSelectSlot2;
     [SerializeField] private GameObject loadGameScreen;
     [SerializeField] private GameObject settingsScreen;
+    [SerializeField] private GameObject creditsScreen;
 
     public void DisableTitleScreen()
     {
@@ -77,5 +78,14 @@ public class MainMenuTransitions : MonoBehaviour
     public void EnableSettingsScreen()
     {
         settingsScreen.SetActive(true);
+    }
+    public void DisableCreditsScreen()
+    {
+        creditsScreen.SetActive(false);
+    }
+
+    public void EnableCreditsScreen()
+    {
+        creditsScreen.SetActive(true);
     }
 }

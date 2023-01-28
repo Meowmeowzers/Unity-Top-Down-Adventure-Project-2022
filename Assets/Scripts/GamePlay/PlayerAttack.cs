@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private SpriteRenderer attackEffect;
     [SerializeField] private Animator attackEffectAnimation;
     [SerializeField] private AudioClip[] soundAttack;
+    [SerializeField] private AudioClip soundRangedAttack;
 
     [SerializeField] private GameObject shuriken;
     private GameObject projectile;
@@ -96,6 +97,8 @@ public class PlayerAttack : MonoBehaviour
             animPlayer.SetTrigger("meleeAttack");
             projectile.SetActive(true);
             projectile.transform.position = this.gameObject.transform.position;
+
+            audioSource.PlayOneShot(soundRangedAttack);
 
             switch (movement.ldirection)
             {

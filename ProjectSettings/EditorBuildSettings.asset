@@ -14,18 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Area1.unity
     guid: 226290a107ec6604da00419bb883767c
-  - enabled: 0
-    path: Assets/Scenes/Area2.unity
-    guid: 270d711f41ccd4e4e8917bbbdc47e902
-  - enabled: 0
-    path: Assets/Scenes/Area3.unity
-    guid: 588f61af82ed01b449072622e1951fb0
-  - enabled: 0
-    path: Assets/Scenes/Area4.unity
-    guid: bff46d2f07e17d54195c46dc4837061a
-  - enabled: 0
-    path: Assets/Scenes/Area5.unity
-    guid: 7e2eb2d708a4edc4086549777867957e
   - enabled: 1
     path: Assets/Scenes/PrototypingScene.unity
     guid: 372655f42f08b4649871202d40cd5602

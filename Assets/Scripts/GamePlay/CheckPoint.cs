@@ -16,15 +16,14 @@ public class CheckPoint : MonoBehaviour
     {
         //positionCheckPoint = transform.position;
         audioSource = GetComponent<AudioSource>();
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = GameManager.Instance;
         gameState = FindObjectOfType<CurrentGameState>();
     }
 
     private void Update()
     {
-        if (gameManager == null || gameState == null)
+        if (gameState == null)
         {
-            gameManager = FindObjectOfType<GameManager>();
             gameState = FindObjectOfType<CurrentGameState>();
         }
     }

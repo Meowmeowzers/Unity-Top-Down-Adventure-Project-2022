@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbca9704323a7984ca37600e480fc005, type: 3}
   m_Name: Area1-3
   m_EditorClassIdentifier: 
-  position: {x: -2, y: 32}
+  position: {x: -1, y: 37}

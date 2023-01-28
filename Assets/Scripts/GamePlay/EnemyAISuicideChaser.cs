@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-// Basic Enemy AI script
+// Chase and suicide enemy AI script
 
-public class EnemyBasic : EnemyAI
+public class EnemyAISuicideChaser : EnemyAI
 {
     private BaseObjectStats stats;
     private Rigidbody2D rb;
@@ -31,7 +31,7 @@ public class EnemyBasic : EnemyAI
     [SerializeField] private float attackSpeed = 3f;
     [SerializeField] private float attackRange = 1.5f;
     private float attackGauge = 3f;
-    [SerializeField] private float chaseDistance = 6f;
+    [SerializeField] private float chaseDistance = 8f;
 
     // Vector variables used for idle and attack movements
     private Vector2 directionToMove;

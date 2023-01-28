@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBoss1 : BaseObjectStats
+public class EnemyFlam : BaseObjectStats
 {
     private Animator anim;
     private AudioSource audioSource;
@@ -9,11 +9,10 @@ public class EnemyBoss1 : BaseObjectStats
     private Color originalColor;
     private Color damagedColor = new Vector4(1f, 0.5f, 0.3f, 1f);
 
-    private BossEnd bossEnd;
-
     [SerializeField] private AudioClip soundDestroy;
 
     private EnemyBasic ai;
+    private EnemyDrop enemyDrop;
 
     public bool isDead = false;
 
@@ -23,10 +22,10 @@ public class EnemyBoss1 : BaseObjectStats
         anim = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         ai = GetComponent<EnemyBasic>();
-        sr = GetComponentInChildren<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
         originalColor = sr.color;
 
-        bossEnd = GetComponent<BossEnd>();
+        enemyDrop = GetComponent<EnemyDrop>();
     }
 
     public override float ObjectHP
@@ -43,8 +42,7 @@ public class EnemyBoss1 : BaseObjectStats
                 objectHP = 0;
                 PlaySound(soundDestroy);
                 isDead = true;
-                anim.SetBool("isDead", true);
-                bossEnd.StartEndSequence();
+                enemyDrop.StartDrop();
             }
             //Debug.Log(gameObject + "'s life left: " + objectHP);
         }
@@ -56,7 +54,8 @@ public class EnemyBoss1 : BaseObjectStats
 
     protected override void Defeated()
     {
-        //gameObject.SetActive(false);
+        Debug.Log(gameObject + "defeated");
+        gameObject.SetActive(false);
         //score.ScoreAdd(1);
     }
 
