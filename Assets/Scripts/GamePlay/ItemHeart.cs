@@ -6,9 +6,11 @@ public class ItemHeart : MonoBehaviour
 {
     [SerializeField] private float healAmount = 5f;
     [SerializeField] private AudioClip sound;
+
     private AudioSource audioSource;
     private SpriteRenderer sr;
     private WaitForSeconds wait;
+
     private bool isReady = true;
 
     private void Awake()

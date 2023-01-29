@@ -3,8 +3,10 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour
 {
     private GameManager gameManager;
+
     //private Vector2 positionCheckPoint;
     private CurrentGameState gameState;
+
     [SerializeField] private PortalCoordinates coordinate;
 
     private AudioSource audioSource;

@@ -1,21 +1,27 @@
 using System.Collections;
 using UnityEngine;
 
-// Basic Enemy AI script
+// Chase and suicide enemy AI script
 
-public class EnemyBasic : EnemyAI
+public class EnemyAIChaserKamikaze: EnemyAI
 {
     private BaseObjectStats stats;
     private Rigidbody2D rb;
 
     // AI States
-    private enum State { idle, idleMove, chasing, attacking };
+    private enum State
+    { idle, idleMove, chasing, attacking };
+
     [SerializeField] private State state = State.idle;
-    public override void SetState(int value) { state = (State) value; }
+
+    public override void SetState(int value)
+    { state = (State)value; }
 
     // booleans used for states and methods
     private bool canMove = true;
-    public bool CanMove { get { return canMove; } set { canMove = value; } }
+
+    public bool CanMove
+    { get { return canMove; } set { canMove = value; } }
 
     private bool onIdle = false;
     private bool onIdleMove = false;
@@ -24,36 +30,38 @@ public class EnemyBasic : EnemyAI
 
     // variables used for idle move state methods
     [SerializeField] private float onIdleMoveCooldown = 3f;
+
     [SerializeField] private float onIdleCooldown = 2f;
     private float onIdleMoveTime = 0f;
 
     // variables used for attack state methods
     [SerializeField] private float attackSpeed = 3f;
+
     [SerializeField] private float attackRange = 1.5f;
     private float attackGauge = 3f;
-    [SerializeField] private float chaseDistance = 6f;
+    [SerializeField] private float chaseDistance = 8f;
 
     // Vector variables used for idle and attack movements
     private Vector2 directionToMove;
+
     [SerializeField] private Vector3 directionToFace;
     [SerializeField] private Vector3 target;
-    //private Vector2[] idleMoveTransform = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-	
-	private WaitForSeconds WaitFixedUpdate;
-	//private WaitForSeconds waitWalk;
-	private WaitForSeconds waitIdle;
-	private WaitForSeconds waitOne;
-	
+
+    private WaitForFixedUpdate WaitFixedUpdate;
+
+    private WaitForSeconds waitIdle;
+
+    private WaitForSeconds waitOne;
+
     private void Start()
     {
         stats = GetComponent<BaseObjectStats>();
         rb = GetComponent<Rigidbody2D>();
-		
-		WaitFixedUpdate = new WaitForSeconds(0.02f);
-		//waitWalk = new WaitForSeconds(3f);
-		waitIdle = new WaitForSeconds(2f);
-		waitOne = new WaitForSeconds(1f);
-		
+
+        WaitFixedUpdate = new WaitForFixedUpdate();
+        waitIdle = new WaitForSeconds(onIdleCooldown);
+        waitOne = new WaitForSeconds(1f);
+
         // generate random direction at start up used for idle move destinantion
         Vector2 direction = Leo.GetRandomDirection();
         directionToFace = (Vector2)transform.position + direction * 3;
@@ -104,10 +112,10 @@ public class EnemyBasic : EnemyAI
             onIdleMove = false;
             onChase = false;
             onAttack = false;
-		    StartCoroutine(Idle());
+            StartCoroutine(Idle());
         }
     }
-	
+
     private void StateIdleMove()
     {
         if (!onIdleMove)
@@ -155,7 +163,7 @@ public class EnemyBasic : EnemyAI
     {
         onIdleMoveTime = Random.Range(-1f, 1f);
         directionToMove = (Vector2)transform.position + Leo.GetRandomDirection();
-        directionToFace = directionToMove - rb.position;        
+        directionToFace = directionToMove - rb.position;
 
         while (onIdleMoveTime < onIdleMoveCooldown || rb.position == directionToMove)
         {
@@ -198,7 +206,7 @@ public class EnemyBasic : EnemyAI
 
     private IEnumerator CAttackTarget()
     {
-        while(onAttack)
+        while (onAttack)
         {
             if (attackGauge > attackSpeed && Vector3.Distance(transform.position, FindObjectOfType<PlayerStats>().gameObject.transform.position) < attackRange)
             {
@@ -214,7 +222,6 @@ public class EnemyBasic : EnemyAI
 
             yield return WaitFixedUpdate;
         }
-        
     }
 
     private void ResetState()
@@ -232,7 +239,6 @@ public class EnemyBasic : EnemyAI
     //rb.MovePosition(rb.transform.position + (target * stats.MoveSpeed * Time.fixedDeltaTime));
     //coordinatesToFollow = aggro.targetPosition * stats.MoveSpeed * Time.fixedDeltaTime;
     //rb.AddForceAtPosition(aggro.targetPosition.normalized, rb.position);
-
 
 private void StateIdleMove()
     {

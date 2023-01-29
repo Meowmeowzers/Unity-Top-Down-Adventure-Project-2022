@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Ranged Enemy AI script
 
-public class EnemyBasicRanged : EnemyAI
+public class EnemyAIBasicRanged : EnemyAI
 {
     private BaseObjectStats stats;
     private Rigidbody2D rb;
@@ -13,13 +12,19 @@ public class EnemyBasicRanged : EnemyAI
     [SerializeField] private AudioClip soundAttack;
 
     // AI States
-    private enum State { idle, idleMove, attacking };
+    private enum State
+    { idle, idleMove, attacking };
+
     [SerializeField] private State state = State.idle;
-    public override void SetState(int value) { state = (State)value; }
+
+    public override void SetState(int value)
+    { state = (State)value; }
 
     // booleans used for states and methods
     private bool canMove = true;
-    public bool CanMove { get { return canMove; } set { canMove = value; } }
+
+    public bool CanMove
+    { get { return canMove; } set { canMove = value; } }
 
     private bool onIdle = false;
     private bool onIdleMove = false;
@@ -27,23 +32,28 @@ public class EnemyBasicRanged : EnemyAI
 
     // variables used for idle move state methods
     [SerializeField] private float onIdleMoveCooldown = 3f;
+    [SerializeField] private float onIdleCooldown = 1f;
+
     private float onIdleMoveTime = 0f;
 
     // variables used for attack state methods
     [SerializeField] private float attackSpeed = 4f;
+
     [SerializeField] private float targetDistance = 8f;
     [SerializeField] private bool attackReady = true;
 
     // Vector variables used for idle and attack movements
     private Vector2 directionToMove;
+
     [SerializeField] private Vector3 directionToFace;
     [SerializeField] private Vector3 target;
-    //private Vector2[] idleMoveTransform = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
 
-    private WaitForSeconds WaitFixedUpdate;
-    //private WaitForSeconds waitWalk;
+    private WaitForFixedUpdate WaitFixedUpdate;
+
     private WaitForSeconds waitIdle;
+
     private WaitForSeconds waitOne;
+
     private WaitForSeconds waitAttack;
 
     [SerializeField] private GameObject projectileGameObject;
@@ -55,9 +65,8 @@ public class EnemyBasicRanged : EnemyAI
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
 
-        WaitFixedUpdate = new WaitForSeconds(0.02f);
-        //waitWalk = new WaitForSeconds(3f);
-        waitIdle = new WaitForSeconds(1f);
+        WaitFixedUpdate = new WaitForFixedUpdate();
+        waitIdle = new WaitForSeconds(onIdleCooldown);
         waitOne = new WaitForSeconds(1f);
         waitAttack = new WaitForSeconds(attackSpeed);
 

@@ -2,13 +2,7 @@ using UnityEngine;
 
 public class EnemyAggro : MonoBehaviour
 {
-    private EnemyBasic enemy;
     public Vector2 targetPosition;
-
-    private void Start()
-    {
-        enemy = GetComponentInParent<EnemyBasic>();
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {

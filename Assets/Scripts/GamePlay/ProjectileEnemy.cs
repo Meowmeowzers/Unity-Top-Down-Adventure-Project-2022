@@ -13,8 +13,8 @@ public class ProjectileEnemy : MonoBehaviour
     private Vector2 stop;
     public float damage = 4f;
 
-
     float angle;
+
     private void Awake()
     {
         stop = Vector2.zero;
@@ -35,7 +35,7 @@ public class ProjectileEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<BaseObjectStats>() && !collision.GetComponent<EnemySlime>())
+        if (collision.GetComponent<PlayerStats>() && !collision.GetComponent<EnemySlime>())
         {
             collision.GetComponent<PlayerStats>().TakeDamage(damage);
             gameObject.SetActive(false);

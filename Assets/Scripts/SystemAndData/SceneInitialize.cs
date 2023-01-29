@@ -5,7 +5,9 @@ public class SceneInitialize : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private CurrentGameState gameState;
+#pragma warning disable IDE0052 // Remove unread private members
     [SerializeField] private bool isDone = false;
+#pragma warning restore IDE0052 // Remove unread private members
     [SerializeField] private bool isFinalQuiz = false;
 
     private StoredSessionData data;

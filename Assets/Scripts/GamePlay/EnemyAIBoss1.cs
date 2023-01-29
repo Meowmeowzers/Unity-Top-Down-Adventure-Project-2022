@@ -15,13 +15,19 @@ public class EnemyAIBoss1 : EnemyAI
     [SerializeField] private AudioClip soundAttack;
 
     // AI States
-    private enum State { idle, idleMove, attack, summon };
+    private enum State
+    { idle, idleMove, attack, summon };
+
     [SerializeField] private State state = State.idle;
-    public override void SetState(int value) { state = (State) value; }
+
+    public override void SetState(int value)
+    { state = (State)value; }
 
     // booleans used for states and methods
     private bool canMove = true;
-    public bool CanMove { get { return canMove; } set { canMove = value; } }
+
+    public bool CanMove
+    { get { return canMove; } set { canMove = value; } }
 
     private bool onIdle = false;
     private bool onIdleMove = false;
@@ -30,11 +36,13 @@ public class EnemyAIBoss1 : EnemyAI
 
     // variables used for idle move state methods
     [SerializeField] private float onIdleMoveCooldown = 3f;
+
     [SerializeField] private float onIdleCooldown = 2f;
     private float onIdleMoveTime = 0f;
 
     // variables used for attack state methods
     [SerializeField] private float attackSpeed = 3f;
+
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private float targetDistance = 6f;
     [SerializeField] private bool attackReady = true;
@@ -46,13 +54,14 @@ public class EnemyAIBoss1 : EnemyAI
 
     // Vector variables used for idle and attack movements
     [SerializeField] private Vector3 directionToFace;
+
     [SerializeField] private Vector3 target;
     private Vector2 directionToMove;
     //private Vector2[] idleMoveTransform = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-	
-	private WaitForSeconds WaitFixedUpdate;
-	private WaitForSeconds waitIdle;
-	private WaitForSeconds waitOne;
+
+    private WaitForFixedUpdate WaitFixedUpdate;
+    private WaitForSeconds waitIdle;
+    private WaitForSeconds waitOne;
     private WaitForSeconds waitAttack;
     private WaitForSeconds waitSummon;
 
@@ -69,8 +78,8 @@ public class EnemyAIBoss1 : EnemyAI
         attackArea = GetComponentInChildren<AreaAttackClose>();
         audioSource = GetComponent<AudioSource>();
 
-        WaitFixedUpdate = new WaitForSeconds(0.02f);
-        waitIdle = new WaitForSeconds(1f);
+        WaitFixedUpdate = new WaitForFixedUpdate();
+        waitIdle = new WaitForSeconds(onIdleCooldown);
         waitOne = new WaitForSeconds(1f);
         waitAttack = new WaitForSeconds(attackSpeed);
         waitSummon = new WaitForSeconds(summonCooldown);
@@ -139,10 +148,10 @@ public class EnemyAIBoss1 : EnemyAI
             onIdleMove = false;
             onAttack = false;
             onSummon = false;
-		    StartCoroutine(Idle());
+            StartCoroutine(Idle());
         }
     }
-	
+
     private void StateIdleMove()
     {
         if (!onIdleMove)
@@ -154,6 +163,7 @@ public class EnemyAIBoss1 : EnemyAI
             StartCoroutine(CIdleMove());
         }
     }
+
     private void StateAttack()
     {
         if (!onAttack)
@@ -193,14 +203,14 @@ public class EnemyAIBoss1 : EnemyAI
     {
         onIdleMoveTime = Random.Range(-1f, 1f);
         directionToMove = (Vector2)transform.position + Leo.GetRandomDirection();
-        directionToFace = (directionToMove - rb.position).normalized;        
+        directionToFace = (directionToMove - rb.position).normalized;
 
         while (onIdleMoveTime < onIdleMoveCooldown || rb.position == directionToMove)
         {
             rb.velocity = (directionToFace * stats.MoveSpeed);
             //Debug.DrawLine(transform.position, transform.position + directionToFace, Color.yellow);
             onIdleMoveTime += Time.fixedDeltaTime;
-            
+
             yield return WaitFixedUpdate;
         }
 
@@ -215,13 +225,12 @@ public class EnemyAIBoss1 : EnemyAI
 
     private IEnumerator CAttack()
     {
-        while(onAttack && attackReady)
+        while (onAttack && attackReady)
         {
             /*
             if (Vector3.Distance(transform.position, FindObjectOfType<PlayerStats>().gameObject.transform.position) < attackRange)
             {
                 //MeleeAttack();
-                
             }
             */
             if (Vector3.Distance(transform.position, FindObjectOfType<PlayerStats>().gameObject.transform.position) < targetDistance)

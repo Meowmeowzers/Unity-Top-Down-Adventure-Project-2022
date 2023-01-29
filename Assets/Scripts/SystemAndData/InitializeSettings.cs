@@ -17,7 +17,6 @@ public class InitializeSettings : MonoBehaviour
     private void SetMusicVolume(float value)
     {
         audioMixer.SetFloat("Music", Mathf.Log10(value) * 20);
-        
     }
 
     private void SetSoundVolume(float value)

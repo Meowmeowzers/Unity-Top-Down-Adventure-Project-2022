@@ -11,7 +11,6 @@ public class EnemyFlam : BaseObjectStats
 
     [SerializeField] private AudioClip soundDestroy;
 
-    private EnemyBasic ai;
     private EnemyDrop enemyDrop;
 
     public bool isDead = false;
@@ -21,7 +20,6 @@ public class EnemyFlam : BaseObjectStats
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
-        ai = GetComponent<EnemyBasic>();
         sr = GetComponent<SpriteRenderer>();
         originalColor = sr.color;
 
@@ -66,10 +64,7 @@ public class EnemyFlam : BaseObjectStats
 
     private void DisableMove()
     {
-        if (ai.CanMove)
-        {
-            ai.CanMove = false;
-        }
+
     }
 
     protected override void Attacked(float damage)

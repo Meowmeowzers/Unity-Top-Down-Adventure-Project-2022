@@ -13,8 +13,6 @@ public class EnemyBoss1Stats : BaseObjectStats
 
     [SerializeField] private AudioClip soundDestroy;
 
-    private EnemyBasic ai;
-
     public bool isDead = false;
 
     private void Start()
@@ -22,7 +20,6 @@ public class EnemyBoss1Stats : BaseObjectStats
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
-        ai = GetComponent<EnemyBasic>();
         sr = GetComponentInChildren<SpriteRenderer>();
         originalColor = sr.color;
 
@@ -67,10 +64,7 @@ public class EnemyBoss1Stats : BaseObjectStats
 
     private void DisableMove()
     {
-        if (ai.CanMove)
-        {
-            ai.CanMove = false;
-        }
+
     }
 
     protected override void Attacked(float damage)
@@ -78,7 +72,6 @@ public class EnemyBoss1Stats : BaseObjectStats
         ObjectHP -= damage;
         if (ObjectHP > 0)
         {
-            //DamagedFlashStart();
             anim.SetTrigger("isHit");
         }
     }
