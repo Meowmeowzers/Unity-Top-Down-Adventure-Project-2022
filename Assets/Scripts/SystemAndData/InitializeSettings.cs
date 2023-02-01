@@ -7,9 +7,22 @@ public class InitializeSettings : MonoBehaviour
 
     private void Start()
     {
-        SetMusicVolume(PlayerPrefs.GetFloat("VolumeMusic"));
-        SetSoundVolume(PlayerPrefs.GetFloat("VolumeSound"));
-        SetQuality(PlayerPrefs.GetInt("Quality"));
+        if (PlayerPrefs.HasKey("VolumeMusic") && PlayerPrefs.HasKey("VolumeSound") && PlayerPrefs.HasKey("Quality"))
+        {
+            SetMusicVolume(PlayerPrefs.GetFloat("VolumeMusic"));
+            SetSoundVolume(PlayerPrefs.GetFloat("VolumeSound"));
+            SetQuality(PlayerPrefs.GetInt("Quality"));
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("VolumeMusic", .8f);
+            PlayerPrefs.SetFloat("VolumeSound", .8f);
+            QualitySettings.SetQualityLevel(1);
+
+            SetMusicVolume(.8f);
+            SetSoundVolume(.8f);
+            SetQuality(1);
+        }
 
         AudioManager.Instance.PlayMusic(0);
     }
@@ -38,10 +51,6 @@ public class InitializeSettings : MonoBehaviour
         else if (qualityIndex == 2)
         {
             Application.targetFrameRate = 62;
-        }
-        else if (qualityIndex == 3)
-        {
-            Application.targetFrameRate = 92;
         }
     }
 }

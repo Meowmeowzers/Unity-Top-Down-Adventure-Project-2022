@@ -4,7 +4,6 @@ public class ButtonMenu : MonoBehaviour
 {
     private AudioSource audioSource;
     [SerializeField] private AudioClip soundHover;
-    //[SerializeField] private AudioClip soundClick;
 
     private void Start()
     {

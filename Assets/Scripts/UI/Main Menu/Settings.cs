@@ -13,21 +13,29 @@ public class Settings : MonoBehaviour
     [SerializeField] private Slider sliderSound;
     [SerializeField] private TMP_Dropdown dropdown;
 
-	private float music, sound;
-	private int gfx;
-
     private void OnEnable()
 	{
-		music = PlayerPrefs.GetFloat("VolumeMusic");
-		sound = PlayerPrefs.GetFloat("VolumeSound");
-		gfx = PlayerPrefs.GetInt("Quality");
-		SetMusicVolume(music);
-		SetSoundVolume(sound);
-		SetQuality(gfx);
-		sliderMusic.value = music;
-		sliderSound.value = sound;
-		dropdown.value = gfx;
-	}
+		if (PlayerPrefs.HasKey("VolumeMusic") && PlayerPrefs.HasKey("VolumeMusic") && PlayerPrefs.HasKey("Quality"))
+		{
+            SetMusicVolume(PlayerPrefs.GetFloat("VolumeMusic"));
+            SetSoundVolume(PlayerPrefs.GetFloat("VolumeSound"));
+            SetQuality(PlayerPrefs.GetInt("Quality"));
+        }
+		else
+		{
+            PlayerPrefs.SetFloat("VolumeMusic", .8f);
+            PlayerPrefs.SetFloat("VolumeSound", .8f);
+            QualitySettings.SetQualityLevel(1);
+
+            SetMusicVolume(.8f);
+            SetSoundVolume(.8f);
+            SetQuality(1);
+        }
+
+        sliderMusic.value = PlayerPrefs.GetFloat("VolumeMusic");
+        sliderSound.value = PlayerPrefs.GetFloat("VolumeSound");
+        dropdown.value = PlayerPrefs.GetInt("Quality");
+    }
 	
 	public void SetMusicVolume (float value)
 	{
@@ -44,19 +52,16 @@ public class Settings : MonoBehaviour
 	public void SetQuality (int qualityIndex)
 	{
 		QualitySettings.SetQualityLevel(qualityIndex);
+
 		if (qualityIndex == 0)
-        {
-            Application.targetFrameRate = 25;
-        }
-		else if (qualityIndex == 1)
         {
             Application.targetFrameRate = 32;
         }
-        else if (qualityIndex == 2)
+		else if (qualityIndex == 1)
         {
             Application.targetFrameRate = 62;
         }
-		else if (qualityIndex == 3)
+        else if (qualityIndex == 2)
         {
             Application.targetFrameRate = 92;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    // An empty base class to make EnemyBasic.cs and EnemyBasicRanged.cs have same parent
+    // An empty base class to make enemy AI scripts to have same parent
 
     public virtual void SetState(int value) { }
 }
