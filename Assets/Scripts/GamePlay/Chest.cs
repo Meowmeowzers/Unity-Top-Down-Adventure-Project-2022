@@ -2,24 +2,23 @@ using UnityEngine;
 
 public class Chest : BaseObjectStats
 {
-    [SerializeField] private AudioClip soundOpen;
-
     private AudioSource audioSource;
-    private Animator anim;
+    private SpriteRenderer sr;
     private Score score;
 
-    private bool isClosed = true;
+    [SerializeField] private AudioClip soundOpen;
+    [SerializeField] private Sprite openedSprite;
+    [SerializeField] private bool isOpened = false;
 
     public override float ObjectHP
     {
         set
         {
             //Check value if greater than 0 before modifying it
-            //I think it could reduce the possibility of bugs in the future
             if (objectHP > 0)
             {
                 objectHP = value;
-                if (objectHP <= 0 && isClosed)
+                if (objectHP <= 0 && !isOpened)
                 {
                     Defeated();
                 }
@@ -34,9 +33,9 @@ public class Chest : BaseObjectStats
 
     protected void Start()
     {
-        anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         score = FindObjectOfType<Score>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     public override void TakeDamage(float damage)
@@ -52,8 +51,8 @@ public class Chest : BaseObjectStats
     protected override void Defeated()
     {
         audioSource.PlayOneShot(soundOpen);
-        anim.SetBool("isOpened", true);
+        sr.sprite = openedSprite;
         score.ScoreAdd(5);
-        isClosed = false;
+        isOpened = true;
     }
 }

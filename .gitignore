@@ -379,4 +379,6 @@ Builds
 Library
 temp
 UserSettings
-/Assembly-CSharp.csproj
+.vscode
+desktop.ini
+*.csproj

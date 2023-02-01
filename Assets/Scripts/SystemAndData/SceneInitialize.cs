@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SceneInitialize : MonoBehaviour
 {
-
     [SerializeField] private GameObject player;
     [SerializeField] private CurrentGameState gameState;
 #pragma warning disable IDE0052 // Remove unread private members
@@ -17,7 +16,7 @@ public class SceneInitialize : MonoBehaviour
         gameState = MainSystem.Instance.gameState.GetComponent<CurrentGameState>();
         MainSystem.Instance.ui.SetActive(true);
         MainSystem.Instance.systemCamera.SetActive(true);
-        MainSystem.Instance.gameManager.SetActive(true);
+        GameManager.Instance.gameObject.SetActive(true);
 
         if (isFinalQuiz)
         {
