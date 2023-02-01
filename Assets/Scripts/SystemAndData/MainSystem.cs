@@ -29,7 +29,6 @@ public class MainSystem : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public GameObject gameManager;
     public GameObject systemCamera;
     public GameObject ui;
     public GameObject gameState;

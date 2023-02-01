@@ -3,16 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-    [SerializeField] private GameObject gameManager;
-    [SerializeField] private GameObject systemCamera;
     [SerializeField] private GameObject ui;
     [SerializeField] private GameTime gameTime;
     [SerializeField] private CurrentGameState gameState;
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<MainSystem>().gameManager;
-        systemCamera = FindObjectOfType<MainSystem>().systemCamera;
         ui = FindObjectOfType<MainSystem>().ui;
         gameTime = FindObjectOfType<GameTime>();
         gameState = FindObjectOfType<CurrentGameState>();
@@ -20,10 +16,8 @@ public class StartGame : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager == null || systemCamera == null || ui == null || gameTime == null || gameState == null)
+        if (ui == null || gameTime == null || gameState == null)
         {
-            gameManager = FindObjectOfType<MainSystem>().gameManager;
-            systemCamera = FindObjectOfType<MainSystem>().systemCamera;
             ui = FindObjectOfType<MainSystem>().ui;
             gameTime = FindObjectOfType<GameTime>();
             gameState = FindObjectOfType<CurrentGameState>();
