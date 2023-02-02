@@ -5,6 +5,7 @@ Top Down Adventure Game Patch Notes
 
 
 Version 0.10.5
+- Updated to Unity 2022.2.5f1
 - Mostly bugfixing, code refactoring, and a bit of game object polishing
 Version 0.10.4
 Version 0.10.3

@@ -19,7 +19,7 @@ public abstract class BaseObjectStats : MonoBehaviour
     {
         set
         {
-            Debug.Log(objectHP);
+            //Debug.Log(objectHP);
             objectHP = value;
             if (objectHP > objectMaxHP)
             {
@@ -30,7 +30,7 @@ public abstract class BaseObjectStats : MonoBehaviour
                 objectHP = 0;
                 Defeated();
             }
-            Debug.Log(gameObject + "'s life left: " + objectHP);
+            //Debug.Log(gameObject + "'s life left: " + objectHP);
         }
         get
         {

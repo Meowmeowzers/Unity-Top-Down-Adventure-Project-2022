@@ -12,7 +12,7 @@ public class BossEnd : MonoBehaviour
     private IEnumerator CEndSequence()
     {
         //gameObject.SetActive(false);
-        Debug.Log("Boss is Defeated");
+        //Debug.Log("Boss is Defeated");
         yield return new WaitForSeconds(2f);
         GameManager.HideGameControlsUI();
         

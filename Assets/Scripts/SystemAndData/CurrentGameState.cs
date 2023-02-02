@@ -41,12 +41,12 @@ public class CurrentGameState : MonoBehaviour
     {
         //GetCurrentData();
         SaveAndLoadSystem.SaveGameData(this);
-        Debug.Log("leo - Save and load system, save");
+        //Debug.Log("leo - Save and load system, save");
     }
 
     public void LoadGameSession(int slot)
     {
-        Debug.Log("Leo - Load game session");
+        //Debug.Log("Leo - Load game session");
 
         data = SaveAndLoadSystem.LoadGameData(slot);
 
@@ -64,8 +64,8 @@ public class CurrentGameState : MonoBehaviour
             }
         }
 
-        Debug.Log("Leo - " + playerTransform);
-        Debug.Log("Leo - " + playerHP);
-        Debug.Log("Leo - " + gameTime);
+        //Debug.Log("Leo - " + playerTransform);
+        //Debug.Log("Leo - " + playerHP);
+        //Debug.Log("Leo - " + gameTime);
     }
 }

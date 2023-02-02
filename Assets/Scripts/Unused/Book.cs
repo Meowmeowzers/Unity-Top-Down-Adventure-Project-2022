@@ -33,7 +33,7 @@ public class Book : MonoBehaviour
         textTitle = scrolls[currentPageNumber].title;
         textContent = scrolls[currentPageNumber].content;
         GameManager.ChangeContentBookPanel(textTitle, textContent, currentPageNumber);
-        Debug.Log(currentPageNumber);
+        //Debug.Log(currentPageNumber);
     }
 
     public void NextPage()
@@ -117,13 +117,13 @@ public class Book : MonoBehaviour
     public void InitData(bool[] values)
     {
        
-        Debug.Log("Leo - Resetting book data");
+        //Debug.Log("Leo - Resetting book data");
         for (int i = 0; i < scrolls.Length; i++)
         {
             scrolls[i].isUnlocked = values[i];
             if (scrolls[i].isUnlocked)
             {
-                Debug.Log(i);
+                //Debug.Log(i);
             }
         }
     }

@@ -35,7 +35,7 @@ public class CheckPoint : MonoBehaviour
         if (collision.GetComponent<PlayerStats>())
         {
             //isActive = true;
-            Debug.Log("Check point activated at: " + transform.position);
+            //Debug.Log("Check point activated at: " + transform.position);
             audioSource.PlayOneShot(soundCheckPoint);
             gameState.playerTransform.x = coordinate.position.x;
             gameState.playerTransform.y = coordinate.position.y;
